@@ -34,14 +34,15 @@ function Chat ({ users, messages, userName, roomId, onAddMessage }) {
       <div className="chat-messages">
         <div ref={messagesRef} className="messages">
           {
-            messages.map((message) => { 
-            <div className="message">
+            messages.map((message) => {
+              return  <div className="message">
               <p>{message.text}</p>
               <div>
                 <span>{userName}</span>
               </div>
             </div>
-          ))}
+            })
+          }
         </div>
         <form>
           <textarea 

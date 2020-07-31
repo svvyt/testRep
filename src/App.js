@@ -2,7 +2,7 @@ import React from 'react';
 import socket from './socket';
 import axios from 'axios';
 
-import reducer from '../reducer';
+import reducer from './reducer';
 import JoinBlock from './components/JoinBlock';
 import Chat from './components/Chat';
 
@@ -45,8 +45,7 @@ function App() {
   React.useEffect(() => {
     socket.on('ROOM:SET_USERS', setUsers);
     socket.on('ROOM:NEW_MESSAGE', addMessage);
-    });
-  }, []);
+  });
 
   window.socket = socket;
 

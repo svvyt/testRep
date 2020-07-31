@@ -9,11 +9,11 @@ app.use(express.json()); // посредник, парсит json-данные e
 const rooms = new Map(); // вместо базы данных
 
 app.get('/rooms/:id', (req, res) => {
-  const { id: roomsId } = req.params;
+  const { id: roomId } = req.params;
   const obj = rooms.has(roomId) 
   ? {
-      users: [...rooms.get(roomdId).get('users').values()],
-      messages: [...rooms.get(roomdId).get('messages').values()],
+      users: [...rooms.get(roomId).get('users').values()],
+      messages: [...rooms.get(roomId).get('messages').values()],
     } 
   : { users: [], messages: [] };
   res.json(obj);
@@ -62,7 +62,7 @@ io.on('connection', (socket) => {
   console.log('user connected', socket.id);
 })
 
-server.listen(9000, (err) => {
+server.listen(3000, (err) => {
   if (err) {
     throw Error(err);
   }
